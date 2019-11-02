@@ -4,14 +4,23 @@ var app = express();
 var port = 4000;
 app.set('view engine', 'pug');
 app.set('views', './views');
-
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
-var users = [
-	{ id:1, name: 'Thong'},
-	{ id:2, name: 'Phat'}
-];
+// lowdb
+var low = require('lowdb');
+var FileSync = require('lowdb/adapters/FileSync');
+var adapter = new FileSync('db.json');
+db = low(adapter);
+
+// Set some defaults (required if your JSON file is empty)
+db.defaults({ users: []})
+  .write()
+
+// var users = [
+// 	{ id:1, name: 'Thong'},
+// 	{ id:2, name: 'Phat'}
+// ];
 
 app.get('/', function (req, res) {
 	res.render('index', {
@@ -20,7 +29,7 @@ app.get('/', function (req, res) {
 });
 app.get('/users', function (req, res) {
 	res.render('users/index', {
-		users: users
+		users: db.get('users').value()
 	});
 });
 app.get('/review', function (req, res) {
@@ -46,7 +55,7 @@ app.get('/users/create', function (req, res) {
 
 app.post('/users/create', function (req, res) {
 	console.log(req.body);
-	users.push(req.body);
+	db.get('users').push(req.body).write();
 	res.redirect('/users');
 });
 

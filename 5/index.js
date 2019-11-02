@@ -4,9 +4,9 @@ var app = express();
 var port = 4000;
 app.set('view engine', 'pug');
 app.set('views', './views');
-
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 
 var users = [
 	{ id:1, name: 'Thong'},
