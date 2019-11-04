@@ -54,9 +54,9 @@ app.get('/users/create', function (req, res) {
 
 app.get('/users/:id', function (req, res) {
 	var id = req.params.id;
-	// console.log(id);
-	console.log(req.params);
+	// console.log(req.params);
 	var user = db.get('users').find({ id: id }).value();
+	console.log(user);
 	res.render('users/view', {
 		user: user
 	});
