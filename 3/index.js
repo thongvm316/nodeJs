@@ -24,10 +24,10 @@ app.get('/review', function (req, res) {
 });
 
 app.get('/users/search', function (req, res) {
-	var q = req.query.q;
+	var q = req.query.a;
 	var matchedUsers = users.filter(function (user) {
-		return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1; 
-		// return user.name.indexOf(q) !== -1; 
+		// return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1; 
+		return user.name.indexOf(q) !== -1; 
 	});
 
 	res.render('users/index', {

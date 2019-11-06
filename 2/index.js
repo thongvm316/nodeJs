@@ -1,12 +1,12 @@
 var express = require('express');
 var app = express();
-var port = 4000;
+var port = 5000;
 app.set('view engine', 'pug');
 app.set('views', './views');
 
 app.get('/', function (req, res) {
 	res.render('index', {
-		name: 'Minh Phat',
+		name: 'Thong de thuong cua Hs',
 	});
 });
 app.get('/users', function (request, response) {
