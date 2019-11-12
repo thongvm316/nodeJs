@@ -18,11 +18,6 @@ db = low(adapter);
 db.defaults({ users: [] })
   .write()
 
-// var users = [
-// 	{ id:1, name: 'Thong'},
-// 	{ id:2, name: 'Phat'}
-// ];
-
 app.get('/', function (req, res) {
 	res.render('index');
 });

@@ -4,7 +4,7 @@ var controller = require('../controllers/user.controller');
 
 router.get('/', controller.index);
 
-router.get('/search', middleware1,middleware2 );
+router.get('/search', controller.search);
 
 router.get('/create', controller.create);
 

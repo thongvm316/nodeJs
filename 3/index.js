@@ -15,12 +15,9 @@ app.get('/', function (req, res) {
 	});
 });
 app.get('/users', function (req, res) {
-	res.render('users/index', {
+	res.render('index', {
 		users: users
 	});
-});
-app.get('/review', function (req, res) {
-	res.render('index');
 });
 
 app.get('/users/search', function (req, res) {
@@ -33,7 +30,6 @@ app.get('/users/search', function (req, res) {
 	res.render('users/index', {
 		users: matchedUsers
 	});
-	console.log(req.query)
 });
 
 

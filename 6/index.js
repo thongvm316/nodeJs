@@ -32,9 +32,6 @@ app.get('/users', function (req, res) {
 		users: db.get('users').value()
 	});
 });
-app.get('/review', function (req, res) {
-	res.render('index');
-});
 
 app.get('/users/search', function (req, res) {
 	var q = req.query.q;
