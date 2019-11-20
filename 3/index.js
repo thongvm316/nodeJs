@@ -21,7 +21,7 @@ app.get('/users', function (req, res) {
 });
 
 app.get('/users/search', function (req, res) {
-	var q = req.query.a;
+	var q = req.query.q;
 	var matchedUsers = users.filter(function (user) {
 		// return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1; 
 		return user.name.indexOf(q) !== -1; 
