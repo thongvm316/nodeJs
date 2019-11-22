@@ -6,13 +6,15 @@ block content
 	form(action="/users/search", method="GET")
 		input(type="text" name="q")
 		button(type="button" class="btn btn-success ml-2") Search
-	.card(style='width: 18rem;')
-			each product in products
-				ul.list-unstyled
-					li
-						img.card-img-top(src=product.image, alt='Card image cap')
-						.card-body
-							h5.card-title + product.name
+
+	.row
+		each product in products
+			.card(style='width: 18rem;')
+				img.card-img-top(src=product.image, alt='Card image cap')
+				.card-body
+					h5.card-title= product.name
+					p.card-text= product.description
+					a.btn.btn-primary(href='#') Add to card
 
 
 					
@@ -20,9 +22,7 @@ block content
 			
 		
 				
-				p.card-text Some quick example text to build on the card title and make up the bulk of the card
-				a.btn.btn-primary(href='#') Go somewhere
-
+				
 
 		
 
