@@ -5,7 +5,6 @@ module.exports.index = function (req, res) {
 	res.render('users/index', {
 		users: db.get('users').value()
 	});
-	
 };
 
 module.exports.search = function (req, res) {
@@ -39,6 +38,7 @@ module.exports.get = function (req, res) {
 module.exports.postCreate = function (req, res) {
 	// console.log(req.body);
 	req.body.id = shortid.generate();
+	req.body.avatar = req.file.path.slice(7);
 	console.log(res.locals);
 	db.get('users').push(req.body).write();
 	res.redirect('/users');		

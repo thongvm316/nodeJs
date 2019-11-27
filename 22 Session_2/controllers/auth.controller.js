@@ -32,7 +32,9 @@ module.exports.postLogin = function (req, res) {
 		});
 		return;
 	}
-	console.log(md5('123456'));
-	res.cookie('userId', user.id);
+
+	res.cookie('userId', user.id, {
+		signed: true
+	});
 	res.redirect('/users');
 };

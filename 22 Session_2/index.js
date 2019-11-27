@@ -19,7 +19,7 @@ app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(express.static('public'));
 app.use(cookieParser('tertetet'));
-app.use(sessionMiddleware); // all duong dan bi anh huong
+app.use(sessionMiddleware);// ảnh hưởng all đường dẫn
 
 app.get('/', function (req, res) {
 	res.render('index');

@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser')
 var app = express();
-var port = 4000;
+var port = 5000;
 var shortid = require('shortid');
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -21,6 +21,8 @@ db.defaults({ users: [] })
 app.get('/', function (req, res) {
 	res.render('index');
 });
+
+
 app.get('/users', function (req, res) {
 	res.render('users/index', {
 		users: db.get('users').value()
@@ -49,6 +51,7 @@ app.get('/users/create', function (req, res) {
 
 app.get('/users/:id', function (req, res) {
 	var id = req.params.id;
+	console.log(id);
 	// console.log(req.params);
 	var user = db.get('users').find({ id: id }).value();
 	console.log(user);

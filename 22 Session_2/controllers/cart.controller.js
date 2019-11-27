@@ -2,7 +2,6 @@ var db = require('../db');
 
 module.exports.addToCart = function (req, res, next) {
 	var productId = req.params.productId;
-	console.log(productId);
 	var sessionId = req.signedCookies.sessionId;
 
 	if (!sessionId) {
@@ -14,15 +13,3 @@ module.exports.addToCart = function (req, res, next) {
 
 	res.redirect('/products');
 };
-
-// app.get('/users/:id', function (req, res) {
-// 	var id = req.params.id;
-// 	console.log(id);
-// 	// console.log(req.params);
-// 	var user = db.get('users').find({ id: id }).value();
-// 	console.log(user);
-// 	res.render('users/view', {
-// 		user: user
-		
-// 	});
-// });
