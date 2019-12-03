@@ -1,0 +1,31 @@
+extends ../layout/common.pug
+
+block content
+	h1 Product
+	a.btn.btn-success(href="/users/create") New
+	form(action="/users/search", method="GET")
+		input(type="text" name="q")
+		button(type="button" class="btn btn-success ml-2") Search
+
+	.row
+		each product in products
+			.card(style='width: 18rem;')
+				img.card-img-top(src=product.image, alt='Card image cap')
+				.card-body
+					h5.card-title= product.name
+					p.card-text= product.description
+					a.btn.btn-primary(href='/card/add/' + product.id) Add to cart
+
+
+					
+				
+			
+		
+				
+				
+
+		
+
+
+
+
